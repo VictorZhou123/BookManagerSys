@@ -3,18 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <title>图书管理页面</title>
+    <title>查询页面</title>
 </head>
 <body>
     <div class="container">
-        <div>
-            <form action="{% url 'back:query' %}" method="POST">
-                {% csrf_token %}
-                <a href="{% url 'back:add' %}" class="btn btn-primary">添加书籍</a>
-                <input style="width: 200px;height: 35px;" type="text" placeholder="搜索作者/书名/出版社" name="keyword" id="keyword">
-                <input style="width: 80px;height: 35px;" type="submit" class="btn btn-danger" value="查询">
-            </form>
-        </div>
         <div>
             <table style="width: 1200px"  class="table table-bordered table-hover table-striped">
                 <tr>

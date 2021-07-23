@@ -9,5 +9,7 @@ urlpatterns = [
     path('delet/',views.delet,name="delet"),
     path('edit/',views.edit,name="edit"),
     # path('detail/',views.detail,name="detail"),
+    path('query/',views.query,name="query"),
+
 
 ]

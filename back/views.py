@@ -3,10 +3,14 @@ from back.models import Book
 from django.urls import reverse
 
 # Create your views here.
-def index(request):
-    book = Book.objects.all()
 
-    return render(request,'html/index.html',{"Book":book})
+def index(request):
+    method = request.method
+    book = Book.objects.all()
+    if method=="GET":
+        return render(request,'html/index.html',{"Book":book})
+    elif method=="POST":
+        return render(request,'html/query.html')
 
 
 def add(request):
@@ -49,4 +53,7 @@ def edit(request):
 
 #     return render(request,"html/detail.html",{"Book":book})
 
-    
+def query(request):
+    keyword = request.POST.get("keyword")
+    book = Book.objects.filter(title__contains=keyword)
+    return render(request,'html/query.html',{"Book":book})
